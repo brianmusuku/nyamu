@@ -3,6 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const suggestionsDiv = document.querySelector('.suggestions');
     const links = Array.from(suggestionsDiv.querySelectorAll('a'));
 
+    // Handle input typing and filtering
     input.addEventListener('input', () => {
         const query = input.value.toLowerCase().trim();
 
@@ -20,6 +21,15 @@ document.addEventListener('DOMContentLoaded', () => {
         } else {
             suggestionsDiv.style.display = 'none';
         }
+    });
+
+    // Fill the input field with the selected link's text
+    links.forEach(link => {
+        link.addEventListener('click', (event) => {
+            event.preventDefault(); // Prevent default link behavior
+            input.value = link.textContent.trim(); // Set input value
+            suggestionsDiv.style.display = 'none'; // Hide suggestions
+        });
     });
 
     // Hide suggestions when the input loses focus (optional)
