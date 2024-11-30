@@ -5,8 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Show suggestions when the input is focused
     input.addEventListener('focus', () => {
-        if (suggestionsDiv.style.display !== 'block') {
-            suggestionsDiv.style.display = 'block';
+        if (suggestionsDiv.style.display !== 'flex') {
+            suggestionsDiv.style.display = 'flex';
         }
     });
 
@@ -21,7 +21,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
         // Show or hide suggestions based on matches
         if (query && filteredLinks.length > 0) {
-            suggestionsDiv.style.display = 'block';
+            suggestionsDiv.style.display = 'flex';
             links.forEach(link => {
                 link.style.display = filteredLinks.includes(link) ? 'block' : 'none';
             });
