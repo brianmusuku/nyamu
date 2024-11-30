@@ -3,6 +3,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const suggestionsDiv = document.querySelector('.suggestions');
     const links = Array.from(suggestionsDiv.querySelectorAll('a'));
 
+    // Show suggestions when the input is focused
+    input.addEventListener('focus', () => {
+        if (input.value.trim()) {
+            suggestionsDiv.style.display = 'block';
+        }
+    });
+
     // Handle input typing and filtering
     input.addEventListener('input', () => {
         const query = input.value.toLowerCase().trim();
@@ -32,7 +39,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Hide suggestions when the input loses focus (optional)
+    // Hide suggestions when the input loses focus (unless a link is clicked)
     input.addEventListener('blur', () => {
         setTimeout(() => {
             suggestionsDiv.style.display = 'none';
