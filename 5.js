@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // Show suggestions when the input is focused
     input.addEventListener('focus', () => {
         if (input.value.trim()) {
-            suggestionsDiv.style.display = 'block';
+            suggestionsDiv.style.display = 'flex';
         }
     });
 
